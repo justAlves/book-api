@@ -33,7 +33,7 @@ def listar_resultados_da_busca(query: str, pagina: int = 1) -> list[dict]:
     em um único GET — sem visitar cada /md5/ individualmente."""
     resp = session.get(
         f"{BASE_URL}/search",
-        params={"q": query, "page": pagina, "display": "list"},
+        params={"q": query, "page": pagina, "display": "list", "ext": "epub"},
     )
     resp.raise_for_status()
     soup = BeautifulSoup(resp.text, "html.parser")
